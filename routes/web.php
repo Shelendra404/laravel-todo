@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+    Route::get('/', function () {
+        return view('welcome');
+    });
 
-Route::get('/posts/{slug}', function () {
-    return view('post', 'PostsControllel@show');
-});
+    Route::get('/tasks', 'TasksController@index');
+    Route::post('/tasks', 'TasksController@store');
+    Route::post('/tasks/{task}', 'TasksController@update');
+    Route::post('/tasks/{task}/edit', 'TasksController@edit');
